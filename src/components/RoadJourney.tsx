@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -60,7 +61,7 @@ export default function RoadJourney() {
             if (mobile) {
               const point = trail.getPointAtLength(value * length);
               const x = point.x - 375;
-              const y = point.y - 450;
+              const y = point.y - 570;
               svg.setAttribute('viewBox', `${x} ${y} 750 800`);
             }
           },
@@ -68,7 +69,7 @@ export default function RoadJourney() {
         timeline.to(car, { motionPath: { path: trail, align: trail, alignOrigin: [.5, .5], autoRotate: true }, ease: 'none', duration: 1 }, 0)
           .to(trail, { strokeDashoffset: 0, ease: 'none', duration: 1 }, 0);
         trigger.current = timeline.scrollTrigger ?? null;
-        if (mobile) svg.setAttribute('viewBox', '-255 290 750 800');
+        if (mobile) svg.setAttribute('viewBox', '-255 170 750 800');
         ScrollTrigger.refresh();
         return () => { svg.setAttribute('viewBox', '0 0 1400 900'); trigger.current = null; };
       });
@@ -91,7 +92,7 @@ export default function RoadJourney() {
     <a className={styles.skip} href="#journey">Skip to the journey</a>
     <header className={styles.header}>
       <a className={styles.wordmark} href="#">the roam report<span>®</span></a>
-      <nav className={styles.edition} aria-label="Main navigation"><a href="#stories">Stories</a><a href="#itinerary">Itinerary</a><a href="#about">About</a></nav>
+      <nav className={styles.edition} aria-label="Main navigation"><Link href="/" aria-current="page">Home</Link><Link href="/archive/">Articles</Link><a href="#itinerary">Itinerary</a><Link href="/about/">About</Link></nav>
       <a className={styles.startLink} href="#journey">Let’s take a detour <span>↘</span></a>
     </header>
     <section className={styles.intro}>
@@ -130,7 +131,7 @@ export default function RoadJourney() {
       <h2>Less rush.<br /><em>More wonder.</em></h2>
       <p>For the places you didn’t plan to find.<br />And the moments you’re glad you stopped for.</p>
       <a href="#journey" className={styles.replay}>Take the drive again <span>↗</span></a>
-      <footer><a href="#">The Roam Report</a><span>A CREATIVE TRAVEL JOURNAL</span><span>© 2026</span></footer>
+      <footer><Link href="/">The Roam Report</Link><nav aria-label="Footer navigation"><Link href="/archive/">Articles</Link><Link href="/about/">About</Link><Link href="/about/#contact">Contact</Link></nav><span>© 2026</span></footer>
     </section>
   </main>;
 }

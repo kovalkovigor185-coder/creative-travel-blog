@@ -58,3 +58,47 @@ $ink: #352416;
   .motionOff { height: 100svh; }
 }
 @media(prefers-reduced-motion:reduce) { .journey { height: 100svh; } .sticky { position: relative; } .chapterCard { animation: none; } .roundLink,.replay { transition: none; } .stops { visibility: hidden; } }
+
+// Reading sizes: navigation and useful captions must remain readable on phones.
+.wordmark { font-size:25px; }
+.header .edition { font-family:var(--font-body),sans-serif; font-size:18px; letter-spacing:0; gap:26px; }
+.startLink { font-size:17px; }
+.introTop,.departure,.sceneHeading,.chapterLabel,.eyebrow,.mapCaption,.scrollHint { font-size:14px; line-height:1.5; letter-spacing:1px; }
+.introBottom .invitation { font-size:18px; }
+.motionButton { font-size:18px; min-height:44px; span { font-size:15px; } }
+.chapterCard { width:330px; p { font-size:17px; max-width:280px; opacity:.85; } }
+.cardFooter { font-size:15px; }
+.distance>span:last-child { font-size:13px; letter-spacing:.5px; }
+.stops button { font-size:15px; min-height:44px; }
+.dashboard { height:105px; }
+.map { bottom:105px; }
+.mapCaption { bottom:125px; font-size:12px; }
+.compass span { font-size:14px; }
+.arrival { p { font-size:19px; } footer { font-size:15px; a { font-size:18px; } nav { display:flex; gap:24px; a { font-family:var(--font-body),sans-serif; font-size:17px; font-weight:400; } } } }
+.replay { font-size:17px; }
+.intro h1 { font-weight:400; letter-spacing:-.035em; font-size:clamp(80px,14vw,220px); line-height:1; }
+.chapterCard h2,.arrival h2 { font-weight:400; }
+@media(max-width:1100px) { .header { flex-wrap:wrap; gap:22px; } .header .edition { order:3; width:100%; justify-content:center; } .stops button { padding:12px 10px; i { width:20px; } } .scrollHint { font-size:12px; } }
+@media(max-width:760px) {
+  .header { padding:20px 6vw; gap:17px; }
+  .wordmark { font-size:21px; }
+  .startLink { font-size:14px; }
+  .header .edition { display:flex; justify-content:space-between; gap:14px; font-size:17px; }
+  .introTop { font-size:13px; }
+  .intro h1 { font-size:clamp(50px,14.8vw,110px); letter-spacing:-.035em; line-height:1; }
+  .departure { font-size:13px; letter-spacing:.3px; gap:9px; >span:last-child { display:none; } }
+  .sceneHeading { font-size:13px; gap:15px; align-items:center; }
+  .motionButton { padding:8px 11px; min-height:44px; span { font-size:13px; } }
+  .chapterCard { width:245px; top:100px; h2 { font-size:26px; } p { font-size:16px; line-height:1.5; } }
+  .chapterLabel { font-size:13px; letter-spacing:.5px; }
+  .cardFooter { font-size:14px; padding:11px 0; }
+  .map { bottom:140px; :global(.map-labels) { display:none; } }
+  .mapCaption { font-size:13px; bottom:158px; }
+  .dashboard { height:140px; padding:17px 6vw 22px; gap:16px; }
+  .distance { gap:9px; >span:first-child { font-size:35px; } >span:last-child { font-size:11px; letter-spacing:0; } }
+  .stops { gap:0; button { font-size:14px; padding:12px 7px; gap:5px; i { width:10px; } } }
+  .scrollHint { font-size:13px; }
+  .arrival { .eyebrow { font-size:13px; } p { font-size:17px; } footer { font-size:14px; gap:22px; a { font-size:17px; } nav { gap:18px; a { font-size:16px; } } } }
+  .replay { font-size:16px; }
+}
+@media(max-width:390px) { .wordmark { font-size:19px; } .startLink { font-size:13px; } .dashboard { padding-left:5vw; padding-right:5vw; } .distance>span:last-child { font-size:11px; } .stops button { padding:12px 5px; i { display:none; } } }

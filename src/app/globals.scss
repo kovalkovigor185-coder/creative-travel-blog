@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f8f1e2; color: #352416; font-family: var(--font-body), Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+a { color: inherit; }
+button:focus-visible, a:focus-visible { outline: 3px solid #0054d8; outline-offset: 6px; }
+::selection { background: #e7f9a6; color: #352416; }
+@media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
